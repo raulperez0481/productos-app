@@ -1,0 +1,144 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    font-family: "Nunito", sans-serif;
+    color: #fff;
+    font-size: 1.6rem;
+    min-height: 100vh;
+    text-align: center;
+  }
+  
+  .glassmorphism-effect {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .form {
+    position: absolute;
+    max-width:450px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    padding:.5rem;
+  }
+  .form * {
+    width: 100%;
+    display: block;
+    padding: 1rem 2.5rem;
+  }
+  
+  .form div:nth-of-type(1) {
+    padding-top:0 !important;
+  }
+  .form input, .form textarea, .form .custom-select {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 2.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    font-family: inherit;
+  }
+  
+  .form #datetask{
+    color:white;
+  }
+  
+  .form *:not(button,select):focus {
+    outline: 3px solid #9999FF;
+    background: #fff;
+    color: #000;
+  }
+  .form label {
+    font-weight: bold;
+    padding-top: 1rem;
+    text-align: left;
+  }
+  .form textarea {
+    height: 200px;
+    resize: none;
+  }
+  
+  .form .add{
+    margin: 1rem 0;
+    cursor: pointer;
+    color: #fff;
+    background-color: rgb(29, 120, 255);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 1.5rem 2rem;
+    border-radius: 2.5rem;
+  }
+  
+  .form button.add:hover, .form button.edit:hover {
+    opacity: 0.7;
+  }
+  .form button.edit {
+    display: none;
+  }
+  
+  form .close {
+    color: #000;
+    font-size: 2.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align:right;
+    padding:0;
+  }
+  
+  select{
+    /*reset styles applied by the browser*/
+    appearance: none;
+    outline:0;
+    border: 0;
+    box-shadow: none;
+    background: none;
+    color:white;
+  }
+  
+  select:hover{
+    cursor:pointer;
+  }
+  
+  .custom-select{
+    position:relative;
+    padding:0;
+  }
+  
+  /*remove arrow IE*/
+  select::-ms-expand {
+      display: none;
+  }
+  
+  /*my arrow*/
+  .custom-select::after{
+    content:"\f0d7";
+      font-family: "FontAwesome";
+      right:24px;
+      top:8px;
+      position:absolute;
+      pointer-events:none;
+    font-size:2.4rem
+  }
+
+  a.salir{
+    color: #000;
+  }
+
+  a.salir i{
+    font-size: 3rem;
+  }
+  
