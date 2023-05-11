@@ -1,4 +1,8 @@
 const listaProductos=document.querySelector('.listaProductos')
+const btnOpen= document.querySelector('.mostrarForm')
+const formAdd = document.querySelector('.addProduct')
+const btnClose= document.querySelector('.close')
+
 
 async function obtenerProductos() {
     console.log("Entro en obtener productos");
@@ -39,5 +43,16 @@ async function obtenerProductos() {
     })
 }
 
+btnOpen.addEventListener('click', (e) => {
+    e.preventDefault()
+    formAdd.style.display = 'block'
+});
+
+btnClose.addEventListener('click', (e) => {
+    e.preventDefault()
+    formAdd.style.display = 'none'
+});
+
 document.addEventListener("DOMContentLoaded",obtenerProductos)
+
 //document.querySelector('.edit').addEventListener("click", modificarProducto);

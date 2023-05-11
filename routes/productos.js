@@ -17,7 +17,7 @@ router.post('/crear', (req, res)=>{
         if(err !== undefined){
             throw new Error(err)
         } else {
-            res.send(data)
+            res.redirect('/usuarios/gestion?mensaje=Producto añadido');  
         }
     })
 })
