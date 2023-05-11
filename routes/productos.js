@@ -22,4 +22,14 @@ router.post('/crear', (req, res)=>{
     })
 })
 
+router.delete('/borrar', (req, res)=>{
+    req.app.locals.db.collection('productos').deleteOne({nombre: req.body.nombreProducto}, (err, data)=>{
+        if(err !== undefined){
+            throw new Error(err)
+        } else {
+            res.send(data)
+        }
+    })
+})
+
 module.exports = router;

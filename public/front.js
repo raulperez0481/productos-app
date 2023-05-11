@@ -29,10 +29,8 @@ async function obtenerProductos() {
 
         const botonEliminar = document.createElement("button");
         botonEliminar.textContent = "Eliminar";
-        botonEliminar.dataset.id = index;
         botonEliminar.addEventListener("click", (event) => {
-            const productoIndex = event.target.dataset.id;
-            eliminarProducto(productoIndex);
+            eliminarProducto(producto.nombre);
           });
 
         
@@ -42,6 +40,18 @@ async function obtenerProductos() {
         listaProductos.appendChild(p);
     })
 }
+
+async function eliminarProducto(nombreProducto) {
+    console.log(nombreProducto)
+    const response = await fetch("/productos/borrar", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({nombreProducto})
+    });
+    obtenerProductos();
+  }
 
 btnOpen.addEventListener('click', (e) => {
     e.preventDefault()
