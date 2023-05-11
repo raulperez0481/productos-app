@@ -17,6 +17,9 @@ app.set('views', __dirname + '/views');
 const usuarios = require('./routes/usuarios');
 app.use('/usuarios', usuarios);
 
+const productos = require('./routes/productos');
+app.use('/productos', productos);
+
 
 const MongoClient = mongodb.MongoClient;
 
