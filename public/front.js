@@ -3,8 +3,18 @@ const btnOpen= document.querySelector('.mostrarForm')
 const formAdd = document.querySelector('.addProduct')
 const btnClose= document.querySelector('.close')
 
+function limpiarForm(){
+  document.getElementById("nombre").value = ""
+  document.getElementById("cantidad").value =""
+  document.getElementById("precioMercadona").value =""
+  document.getElementById("precioLidl").value = ""
+  document.getElementById("precioEroski").value = ""
+  document.getElementById("precioAldi").value = ""
+}
+
 
 async function obtenerProductos() {
+  limpiarForm()
     console.log("Entro en obtener productos");
     const response = await fetch("/productos/ver");
     const productos = await response.json();
@@ -17,14 +27,12 @@ async function obtenerProductos() {
         
         const botonEditar = document.createElement("button");
         botonEditar.textContent = "Editar";
-        botonEditar.dataset.id = index; // Agrega el índice de la producto como atributo data-id
         botonEditar.addEventListener("click", (event) => {
-          //obteniendo el índice de la producto correspondiente al botón que se acaba de presionar
-          const productoIndex = event.target.dataset.id;
-          document.querySelector('.envio').style.display="none";
+          formAdd.style.display = 'block'
+          document.querySelector('.add').style.display="none";
           document.querySelector('.edit').style.display="block";
 
-          cargarDatosproducto(productos,productoIndex);
+          cargarDatosProducto(producto);
         });
 
         const botonEliminar = document.createElement("button");
@@ -39,6 +47,44 @@ async function obtenerProductos() {
         p.appendChild(botonEliminar);
         listaProductos.appendChild(p);
     })
+}
+
+function cargarDatosProducto(producto) {
+  document.getElementById("nombre").value = producto.nombre;
+  document.getElementById("cantidad").value = producto.cantidad;
+  document.getElementById("precioMercadona").value = producto.precioMercadona;
+  document.getElementById("precioLidl").value = producto.precioLidl;
+  document.getElementById("precioEroski").value = producto.precioEroski;
+  document.getElementById("precioAldi").value = producto.precioAldi;
+  document.getElementById("idProducto").value = producto._id;
+
+
+}
+
+async function modificarProducto(event) {
+  event.preventDefault();
+  const nombre = document.getElementById("nombre").value;
+  const cantidad = document.getElementById("cantidad").value;
+  const precioMercadona = document.getElementById("precioMercadona").value
+  const precioEroski = document.getElementById("precioEroski").value
+  const precioLidl = document.getElementById("precioLidl").value
+  const precioAldi = document.getElementById("precioAldi").value
+  const idProducto =  document.getElementById("idProducto").value;
+  console.log("esta es la id producto que paso:");
+  console.log(idProducto);
+
+  const response = await fetch("/productos/editar", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ nombre, cantidad, precioMercadona, precioLidl,precioEroski,precioAldi,idProducto })
+  });
+  console.log(response);
+  document.querySelector('.add').style.display="block";
+  document.querySelector('.edit').style.display="none";
+  formAdd.style.display = 'none'
+  obtenerProductos();
 }
 
 async function eliminarProducto(nombreProducto) {
@@ -65,4 +111,4 @@ btnClose.addEventListener('click', (e) => {
 
 document.addEventListener("DOMContentLoaded",obtenerProductos)
 
-//document.querySelector('.edit').addEventListener("click", modificarProducto);
+document.querySelector('.edit').addEventListener("click", modificarProducto);
