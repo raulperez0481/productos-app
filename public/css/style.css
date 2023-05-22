@@ -28,6 +28,62 @@
     border-radius: 16px;
     border: 1px solid rgba(255, 255, 255, 0.18);
   }
+
+  .rojo{
+    color: red;
+  }
+
+  .verde{
+    color:rgb(21, 200, 21)
+  }
+
+  .container {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    padding: 1rem 1.4rem;
+  }
+
+  .listaProductosFront {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .listaProductosFront .product-single {
+    margin: 1rem;
+    padding: 1rem 2.2rem;
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 3px 3px 4px 0 #00000044;
+    border: 1px solid lightgray;
+    background-color: #000000;
+    background-image: linear-gradient(160deg, #000000 0%, #344c4c 100%);
+  }
+
+  .listaProductosFront .product-single h6{
+    padding-bottom:3rem ;
+  }
+
+  .listaProductosFront .product-single .precios{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .listaProductosFront .product-single .precios div, .listaProductosFront .product-single .precios p{
+    width: 21%;
+    text-align: center;
+  }
+
+  .listaProductosFront .product-single .precios p{
+    padding: 1rem 0;
+    font-weight: bold;
+  }
   
   .addProduct{
     opacity: 1;
@@ -147,5 +203,33 @@
 
   a.salir i{
     font-size: 3rem;
+  }
+  
+
+  @media (max-width: 1280px) {
+    /* Estilos CSS para pantallas con ancho menor a 1280px */
+    .listaProductosFront .product-single {
+      width: 45%;
+    }
+    
+  }
+
+  @media (max-width: 800px) {
+    /* Estilos CSS para pantallas con ancho menor a 1280px */
+    .listaProductosFront .product-single {
+      width: 80%;
+    }
+
+    .listaProductosFront{
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 500px) {
+    /* Estilos CSS para pantallas con ancho menor a 1280px */
+    .listaProductosFront .product-single {
+      width: 90%;
+    }
+    
   }
   

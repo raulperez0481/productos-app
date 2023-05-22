@@ -13,7 +13,7 @@ function limpiarForm(){
 }
 
 
-async function obtenerProductos() {
+async function obtenerProductosGestion() {
   limpiarForm()
     console.log("Entro en obtener productos");
     const response = await fetch("/productos/ver");
@@ -84,7 +84,7 @@ async function modificarProducto(event) {
   document.querySelector('.add').style.display="block";
   document.querySelector('.edit').style.display="none";
   formAdd.style.display = 'none'
-  obtenerProductos();
+  obtenerProductosGestion();
 }
 
 async function eliminarProducto(nombreProducto) {
@@ -109,6 +109,7 @@ btnClose.addEventListener('click', (e) => {
     formAdd.style.display = 'none'
 });
 
-document.addEventListener("DOMContentLoaded",obtenerProductos)
+
+document.addEventListener("DOMContentLoaded", obtenerProductosGestion);
 
 document.querySelector('.edit').addEventListener("click", modificarProducto);
