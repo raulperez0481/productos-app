@@ -84,7 +84,7 @@ async function modificarProducto(event) {
   document.querySelector('.add').style.display="block";
   document.querySelector('.edit').style.display="none";
   formAdd.style.display = 'none'
-  obtenerProductos();
+  obtenerProductosGestion();
 }
 
 async function eliminarProducto(nombreProducto) {
@@ -109,11 +109,7 @@ btnClose.addEventListener('click', (e) => {
     formAdd.style.display = 'none'
 });
 
-if (document.getElementById('listaProductosGestion')) {
-  document.addEventListener("DOMContentLoaded", obtenerProductosGestion);
-} else {
-  document.addEventListener("DOMContentLoaded", obtenerProductosFront);
-}
 
+document.addEventListener("DOMContentLoaded", obtenerProductosGestion);
 
 document.querySelector('.edit').addEventListener("click", modificarProducto);
